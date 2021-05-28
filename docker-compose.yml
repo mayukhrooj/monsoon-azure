@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  containerb:
+    volumes:
+      - ./containerB:/usr/local/apache2/htdocs/
+    ports:
+      - "0.0.0.0:8080:80"
+    image: httpd:2.4-alpine
+  containerc:
+    volumes:
+      - ./containerC:/usr/local/apache2/htdocs/
+    ports:
+      - "0.0.0.0:8081:80"
+    image: httpd:2.4-alpine
+  containera:
+    volumes:
+      - ./containerA/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - "0.0.0.0:80:80"
+    image: httpd:2.4-alpine
